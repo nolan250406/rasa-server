@@ -4,8 +4,6 @@ WORKDIR /app
 
 COPY . /app
 
-RUN rasa train
+# RUN rasa train
 
-EXPOSE 5005
-
-CMD ["rasa", "run", "--enable-api", "--cors", "*", "--debug"]
+CMD ["run", "-m", "models", "--enable-api", "--cors", "*", "--debug"]
