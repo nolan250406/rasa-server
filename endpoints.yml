@@ -1,0 +1,5 @@
+# This file contains the different endpoints your bot can use.
+
+# Server which runs your custom actions.
+action_endpoint:
+  url: "https://airport-action.up.railway.app/webhook"

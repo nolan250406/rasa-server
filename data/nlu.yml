@@ -1,0 +1,146 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Xin chào
+    - Chào bạn
+    - Hi
+    - Hello
+    - Cho mình hỏi với
+    - Bạn ơi
+
+- intent: goodbye
+  examples: |
+    - Tạm biệt
+    - Bye
+    - Hẹn gặp lại
+    - Chào nhé
+    - Cảm ơn, tôi đi đây
+
+- intent: flight_status
+  examples: |
+    - Chuyến bay [VN123](flight_code) có đúng giờ không?
+    - Cho tôi hỏi tình trạng chuyến bay [VN456](flight_code)?
+    - Máy bay [VJ789](flight_code) đã cất cánh chưa?
+    - Chuyến bay [VJ123](flight_code) của tôi vẫn bay theo dự kiến đúng không?
+    - Có thông báo mới nào về chuyến bay [VN567](flight_code) chưa?
+    - Chuyến bay [VJ245](flight_code) đến muộn bao nhiêu phút?
+    - Chuyến Bay [VN234](flight_code) đã hạ cánh chưa?
+    - Tôi muốn biết tình trạng chuyến bay
+    - Chuyến bay đã hạ cánh chưa?
+    - Có chuyến bay nào bị hủy hôm nay không?
+    - Làm thế nào để biết chuyến bay đã cất cánh hay chưa?
+
+- intent: flight_departure_time
+  examples: |
+    - Máy bay [VJ177](flight_code) khởi hành lúc mấy giờ?
+    - Giờ cất cánh của chuyến bay [VN456](flight_code) là khi nào?
+    - Khi nào chuyến bay [QH789](flight_code) bắt đầu?
+    - Tôi bay lúc nào?
+    - Mấy giờ máy bay bay?
+
+- intent: checkin_time
+  examples: |
+    - Khi nào mở quầy check-in?
+    - Mấy giờ tôi có thể làm thủ tục?
+    - Tôi nên check-in lúc nào?
+    - Check-in mở lúc mấy giờ?
+    - Làm thủ tục ở đâu?
+    - Tôi đi cùng gia đình, có thể check-in chung không?
+    - Tôi có thể chọn chỗ ngồi khi check-in không?
+    - Tôi lỡ quên in vé thì có làm thủ tục được không?
+    - Tôi có thể thay đổi thông tin cá nhân lúc check-in không?
+    - Tôi có được gửi bao nhiêu kg hành lý?
+    - Nếu quá cân hành lý thì sao?
+    - Có cần in vé máy bay không hay chỉ cần mã code?
+    - Tôi quên mang theo CCCD/CMND thì làm sao?
+    - Tôi dùng hộ chiếu thay CMND để check-in được không?
+    - Trẻ em có cần giấy tờ riêng để check-in không?
+    - Check-in là gì vậy?
+    - Tôi có thể check-in ở đâu trong sân bay?
+    - Tôi cần mang theo giấy tờ gì để check-in?
+
+- intent: flight_route_info
+  examples: |
+    - Hành trình của tôi gồm những chặng nào?
+    - Có quá cảnh không?
+    - Tôi phải dừng ở đâu không?
+    - Lộ trình bay như thế nào?
+
+- intent: baggage_lost
+  examples: |
+    - Tôi bị mất hành lý
+    - Hành lý của tôi chưa ra
+    - Tôi không thấy vali của mình
+    - Bị thất lạc hành lý thì làm sao?
+    - Vali của tôi bị mất
+    - Nếu sân bay không tìm lại được hành lý cho tôi thì sao?
+    - Nếu không tìm thấy hành lý thì tôi phải làm gì?
+    - Không tìm lại được vali thì sao?
+    - Tôi nên làm gì khi hành lý không thể truy ra?
+
+- intent: gate_info
+  examples: |
+    - Cửa ra máy bay là cửa nào?
+    - Tôi lên máy bay ở đâu?
+    - Gate cho chuyến bay [VN123](flight_code) là gì?
+    - Cửa khởi hành ở đâu?
+    - Tôi cần ra cửa nào để bay?
+
+- intent: services
+  examples: |
+    - Có quán ăn nào gần đây không?
+    - Sân bay có wifi miễn phí không?
+    - Ở đây có quầy đổi tiền không?
+    - Có chỗ sạc điện thoại không?
+    - Nhà vệ sinh ở đâu?
+
+- intent: ticket_change
+  examples: |
+    - Tôi muốn đổi vé
+    - Đổi vé được không?
+    - Tôi cần bay chuyến khác
+    - Tôi có thể đổi chuyến bay không?
+    - Làm sao để đổi ngày bay?
+
+- intent: ticket_refund
+  examples: |
+    - Hoàn vé như thế nào?
+    - Tôi muốn trả vé
+    - Làm sao để lấy lại tiền vé?
+    - Vé có hoàn lại được không?
+
+- intent: flight_delay_compensation
+  examples: |
+    - Máy bay delay có được bồi thường không?
+    - Tôi có được đền bù không?
+    - Chuyến bay bị hủy thì sao?
+    - Có chính sách bồi thường không?
+    - Nếu chuyến bay của tôi bị hoãn thì sao?
+    - Máy bay bị delay thì tôi được gì?
+    - Nếu máy bay bị hủy thì tôi được hỗ trợ gì?
+    - Bị hủy chuyến thì tôi có được bồi thường không?
+    - Máy bay bị trễ quá thì làm sao?
+
+- intent: ask_help
+  examples: |
+    - Bạn ơi cho mình hỏi
+    - Làm ơn cho biết thông tin
+    - Tôi cần được hỗ trợ
+    - Giúp tôi với
+
+- intent: bot_challenge
+  examples: |
+    - Bạn có phải là con người không?
+    - Bạn là ai?
+    - Đây có phải là người thật không?
+    - Có phải tôi đang nói chuyện với bot?
+    - Bạn được lập trình bằng gì?
+
+- intent: checkin_requirements
+  examples: |
+    - Làm thủ tục cần giấy tờ gì?
+    - Thủ tục check-in yêu cầu gì?
+    - Cần gì khi làm thủ tục bay?
+    - Làm thủ tục máy bay như thế nào?

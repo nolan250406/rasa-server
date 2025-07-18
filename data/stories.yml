@@ -1,0 +1,63 @@
+version: "3.1"
+stories:
+
+- story: Greet and ask about flight status
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: flight_status
+    - action: utter_ask_flight_code
+
+- story: Provide flight status with code
+  steps:
+    - intent: flight_status
+      entities:
+        - flight_code: VJ177
+    - action: action_flight_status
+
+- story: Check-in inquiry and baggage question
+  steps:
+    - intent: checkin_time
+    - action: utter_checkin_time
+    - intent: baggage_lost
+    - action: utter_baggage_lost
+
+- story: Ask about flight route then gate
+  steps:
+    - intent: flight_route_info
+    - action: utter_flight_route_info
+    - intent: gate_info
+    - action: utter_gate_info
+
+- story: Ask about airport services
+  steps:
+    - intent: services
+    - action: utter_services
+
+- story: Ticket change then refund
+  steps:
+    - intent: ticket_change
+    - action: utter_ticket_change
+    - intent: ticket_refund
+    - action: utter_ticket_refund
+
+- story: Delay complaint and compensation
+  steps:
+    - intent: flight_delay_compensation
+    - action: action_flight_delay_compensation
+
+- story: Greet and say goodbye
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: goodbye
+    - action: utter_goodbye
+- story: user needs help
+  steps:
+    - intent: ask_help
+    - action: utter_greet
+
+- story: challenge bot
+  steps:
+    - intent: bot_challenge
+    - action: utter_bot_challenge

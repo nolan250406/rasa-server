@@ -1,0 +1,82 @@
+version: "3.1"
+
+rules:
+
+- rule: Greet the user
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- rule: Say goodbye to the user
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- rule: Ask for flight code if missing
+  condition:
+    - active_loop: null
+  steps:
+    - intent: flight_status
+    - action: utter_ask_flight_code
+
+- rule: Provide flight status if code is given
+  steps:
+    - intent: flight_status
+      entities:
+        - flight_code: VJ177  # có thể dùng bất kỳ ví dụ nào, slot sẽ tự động lưu
+    - action: action_flight_status
+
+- rule: Respond to check-in time inquiries
+  steps:
+    - intent: checkin_time
+    - action: utter_checkin_time
+
+- rule: Respond to flight route questions
+  steps:
+    - intent: flight_route_info
+    - action: utter_flight_route_info
+
+- rule: Handle lost baggage
+  steps:
+    - intent: baggage_lost
+    - action: utter_baggage_lost
+
+- rule: Respond to gate info inquiries
+  steps:
+    - intent: gate_info
+    - action: utter_gate_info
+
+- rule: Respond to airport service inquiries
+  steps:
+    - intent: services
+    - action: utter_services
+
+- rule: Respond to ticket change requests
+  steps:
+    - intent: ticket_change
+    - action: utter_ticket_change
+
+- rule: Respond to ticket refund requests
+  steps:
+    - intent: ticket_refund
+    - action: utter_ticket_refund
+
+- rule: Trả lời giờ khởi hành chuyến bay
+  steps:
+    - intent: flight_departure_time
+    - action: utter_flight_departure_time
+
+- rule: Trả lời chính sách khi chuyến bay bị hoãn hoặc hủy
+  steps:
+    - intent: flight_delay_compensation
+    - action: action_flight_delay_compensation
+
+- rule: Giải thích bot là gì
+  steps:
+    - intent: bot_challenge
+    - action: utter_bot_challenge
+
+- rule: Hỏi về thủ tục check-in
+  steps:
+    - intent: checkin_requirements
+    - action: utter_checkin_requirements

@@ -1,0 +1,103 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - flight_status
+  - checkin_time
+  - flight_route_info
+  - baggage_lost
+  - gate_info
+  - services
+  - ticket_change
+  - ticket_refund
+  - flight_delay_compensation
+  - flight_departure_time
+  - bot_challenge
+  - ask_help   # 🔹 Bổ sung intent đã có trong nlu.yml
+
+entities:
+  - flight_code
+
+slots:
+  flight_code:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: flight_code
+
+responses:
+  utter_greet:
+    - text: "Xin chào! Tôi có thể hỗ trợ gì cho bạn tại sân bay hôm nay?"
+
+  utter_goodbye:
+    - text: "Tạm biệt! Chúc bạn một chuyến đi thuận lợi."
+
+  utter_flight_status:
+    - text: "Vui lòng cung cấp mã chuyến bay để tôi kiểm tra tình trạng giúp bạn."
+
+  utter_ask_flight_code:
+    - text: "Bạn vui lòng cung cấp mã chuyến bay (ví dụ: VN123) để tôi kiểm tra nhé."
+
+  utter_checkin_time:
+    - text: "Thời gian mở quầy check-in thường trước giờ bay 2 đến 3 tiếng. Bạn có thể kiểm tra thêm với hãng bay."
+
+  utter_flight_route_info:
+    - text: "Bạn muốn biết hành trình cụ thể nào ạ? Thường hành trình được ghi rõ trong vé hoặc mã đặt chỗ."
+
+  utter_baggage_lost:
+  - text: |
+      Rất tiếc về sự cố này! ✈️
+
+      Bạn nên:
+      1. Đến **quầy hỗ trợ hành lý thất lạc** gần nhất tại khu vực băng chuyền hành lý.
+      2. Cung cấp **mã vé, thẻ hành lý và giấy tờ tùy thân** để được hỗ trợ.
+      3. Ghi nhận thông tin liên hệ để sân bay hoặc hãng bay liên lạc khi tìm được hành lý.
+
+      Ngoài ra, bạn có thể gọi tổng đài của hãng hàng không nếu đã rời khỏi sân bay.
+
+  utter_gate_info:
+    - text: "Bạn có thể xem cửa khởi hành trên vé hoặc bảng thông tin điện tử trong sân bay."
+
+  utter_services:
+    - text: "Tại sân bay có nhà vệ sinh, khu ăn uống, wifi miễn phí, quầy đổi tiền và trạm sạc điện thoại."
+
+  utter_ticket_change:
+    - text: "Vui lòng cung cấp mã đặt chỗ để kiểm tra điều kiện đổi vé. Mỗi hãng có quy định khác nhau."
+
+  utter_ticket_refund:
+    - text: "Việc hoàn vé tùy thuộc vào loại vé bạn mua. Bạn nên liên hệ nơi đã mua vé để biết chi tiết."
+
+  utter_bot_challenge:
+    - text: "Tôi là trợ lý ảo hỗ trợ sân bay, được xây dựng bằng công nghệ Rasa."
+
+  utter_flight_departure_time:
+    - text: "Bạn vui lòng cung cấp mã chuyến bay để tôi tra cứu giờ khởi hành."
+  
+  utter_checkin_requirements:
+    - text: |
+        Để làm thủ tục check-in, bạn cần chuẩn bị:
+        - Giấy tờ tùy thân: CCCD/CMND, hộ chiếu hoặc giấy khai sinh (trẻ em)
+        - Mã vé hoặc mã đặt chỗ
+        - Hành lý ký gửi (nếu có)
+
+        Thời gian mở quầy check-in: Thường là 2 đến 3 tiếng trước giờ bay.
+        Bạn nên kiểm tra thêm với hãng bay để biết chính xác.
+
+actions:
+  - action_greet
+  - action_goodbye
+  - action_flight_status
+  - action_checkin_time
+  - action_flight_route_info
+  - action_baggage_lost
+  - action_gate_info
+  - action_services
+  - action_ticket_change
+  - action_ticket_refund
+  - action_flight_delay_compensation
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
