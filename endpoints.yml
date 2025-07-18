@@ -1,6 +1,2 @@
-# This file contains the different endpoints your bot can use.
-
-# Server which runs your custom actions.
-action_endpoint:
-  url: "https://action-server-production-6401.up.railway.app/webhook"
-
+models:
+  url: ./models/model.tar.gz
