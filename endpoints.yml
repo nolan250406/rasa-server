@@ -2,4 +2,5 @@
 
 # Server which runs your custom actions.
 action_endpoint:
-  url: "https://airport-action.up.railway.app/webhook"
+  url: "https://action-server-production-6401.up.railway.app/webhook"
+
