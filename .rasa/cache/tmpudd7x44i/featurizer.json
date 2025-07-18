@@ -1,0 +1,79 @@
+{
+  "type": "IntentMaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "ask_help": 0,
+        "back": 1,
+        "baggage_lost": 2,
+        "bot_challenge": 3,
+        "checkin_time": 4,
+        "flight_delay_compensation": 5,
+        "flight_departure_time": 6,
+        "flight_route_info": 7,
+        "flight_status": 8,
+        "gate_info": 9,
+        "goodbye": 10,
+        "greet": 11,
+        "nlu_fallback": 12,
+        "out_of_scope": 13,
+        "restart": 14,
+        "services": 15,
+        "session_start": 16,
+        "ticket_change": 17,
+        "ticket_refund": 18
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "action_greet": 13,
+        "action_goodbye": 14,
+        "action_flight_status": 15,
+        "action_checkin_time": 16,
+        "action_flight_route_info": 17,
+        "action_baggage_lost": 18,
+        "action_gate_info": 19,
+        "action_services": 20,
+        "action_ticket_change": 21,
+        "action_ticket_refund": 22,
+        "action_flight_delay_compensation": 23,
+        "utter_ask_flight_code": 24,
+        "utter_baggage_lost": 25,
+        "utter_bot_challenge": 26,
+        "utter_checkin_requirements": 27,
+        "utter_checkin_time": 28,
+        "utter_flight_departure_time": 29,
+        "utter_flight_route_info": 30,
+        "utter_flight_status": 31,
+        "utter_gate_info": 32,
+        "utter_goodbye": 33,
+        "utter_greet": 34,
+        "utter_services": 35,
+        "utter_ticket_change": 36,
+        "utter_ticket_refund": 37
+      },
+      "entities": {
+        "flight_code": 0
+      },
+      "slots": {
+        "flight_code_0": 0
+      },
+      "active_loop": {}
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}
