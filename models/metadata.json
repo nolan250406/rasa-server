@@ -1,0 +1,773 @@
+{
+  "domain": {
+    "version": "3.1",
+    "intents": [
+      "ask_help",
+      "baggage_lost",
+      "bot_challenge",
+      "checkin_time",
+      "flight_delay_compensation",
+      "flight_departure_time",
+      "flight_route_info",
+      "flight_status",
+      "gate_info",
+      "goodbye",
+      "greet",
+      "services",
+      "ticket_change",
+      "ticket_refund"
+    ],
+    "entities": [
+      "flight_code"
+    ],
+    "slots": {
+      "flight_code": {
+        "type": "text",
+        "influence_conversation": true,
+        "mappings": [
+          {
+            "type": "from_entity",
+            "entity": "flight_code"
+          }
+        ]
+      }
+    },
+    "responses": {
+      "utter_greet": [
+        {
+          "text": "Xin chào! Tôi có thể hỗ trợ gì cho bạn tại sân bay hôm nay?"
+        }
+      ],
+      "utter_goodbye": [
+        {
+          "text": "Tạm biệt! Chúc bạn một chuyến đi thuận lợi."
+        }
+      ],
+      "utter_flight_status": [
+        {
+          "text": "Vui lòng cung cấp mã chuyến bay để tôi kiểm tra tình trạng giúp bạn."
+        }
+      ],
+      "utter_ask_flight_code": [
+        {
+          "text": "Bạn vui lòng cung cấp mã chuyến bay (ví dụ: VN123) để tôi kiểm tra nhé."
+        }
+      ],
+      "utter_checkin_time": [
+        {
+          "text": "Thời gian mở quầy check-in thường trước giờ bay 2 đến 3 tiếng. Bạn có thể kiểm tra thêm với hãng bay."
+        }
+      ],
+      "utter_flight_route_info": [
+        {
+          "text": "Bạn muốn biết hành trình cụ thể nào ạ? Thường hành trình được ghi rõ trong vé hoặc mã đặt chỗ."
+        }
+      ],
+      "utter_baggage_lost": [
+        {
+          "text": "Rất tiếc về sự cố này! ✈️\n\nBạn nên:\n1. Đến **quầy hỗ trợ hành lý thất lạc** gần nhất tại khu vực băng chuyền hành lý.\n2. Cung cấp **mã vé, thẻ hành lý và giấy tờ tùy thân** để được hỗ trợ.\n3. Ghi nhận thông tin liên hệ để sân bay hoặc hãng bay liên lạc khi tìm được hành lý.\n\nNgoài ra, bạn có thể gọi tổng đài của hãng hàng không nếu đã rời khỏi sân bay.\n"
+        }
+      ],
+      "utter_gate_info": [
+        {
+          "text": "Bạn có thể xem cửa khởi hành trên vé hoặc bảng thông tin điện tử trong sân bay."
+        }
+      ],
+      "utter_services": [
+        {
+          "text": "Tại sân bay có nhà vệ sinh, khu ăn uống, wifi miễn phí, quầy đổi tiền và trạm sạc điện thoại."
+        }
+      ],
+      "utter_ticket_change": [
+        {
+          "text": "Vui lòng cung cấp mã đặt chỗ để kiểm tra điều kiện đổi vé. Mỗi hãng có quy định khác nhau."
+        }
+      ],
+      "utter_ticket_refund": [
+        {
+          "text": "Việc hoàn vé tùy thuộc vào loại vé bạn mua. Bạn nên liên hệ nơi đã mua vé để biết chi tiết."
+        }
+      ],
+      "utter_bot_challenge": [
+        {
+          "text": "Tôi là trợ lý ảo hỗ trợ sân bay, được xây dựng bằng công nghệ Rasa."
+        }
+      ],
+      "utter_flight_departure_time": [
+        {
+          "text": "Bạn vui lòng cung cấp mã chuyến bay để tôi tra cứu giờ khởi hành."
+        }
+      ],
+      "utter_checkin_requirements": [
+        {
+          "text": "Để làm thủ tục check-in, bạn cần chuẩn bị:\n- Giấy tờ tùy thân: CCCD/CMND, hộ chiếu hoặc giấy khai sinh (trẻ em)\n- Mã vé hoặc mã đặt chỗ\n- Hành lý ký gửi (nếu có)\n\nThời gian mở quầy check-in: Thường là 2 đến 3 tiếng trước giờ bay.\nBạn nên kiểm tra thêm với hãng bay để biết chính xác.\n"
+        }
+      ]
+    },
+    "actions": [
+      "action_greet",
+      "action_goodbye",
+      "action_flight_status",
+      "action_checkin_time",
+      "action_flight_route_info",
+      "action_baggage_lost",
+      "action_gate_info",
+      "action_services",
+      "action_ticket_change",
+      "action_ticket_refund",
+      "action_flight_delay_compensation"
+    ],
+    "session_config": {
+      "session_expiration_time": 60,
+      "carry_over_slots_to_new_session": true
+    }
+  },
+  "trained_at": "2025-07-18T23:24:21.562357",
+  "model_id": "1468dcced89a4a079034405f5c955193",
+  "assistant_id": "20250719-055924-beveled-skirmish",
+  "rasa_open_source_version": "3.6.21",
+  "train_schema": {
+    "nodes": {
+      "schema_validator": {
+        "needs": {
+          "importer": "__importer__"
+        },
+        "uses": "rasa.graph_components.validators.default_recipe_validator.DefaultV1RecipeValidator",
+        "constructor_name": "create",
+        "fn": "validate",
+        "config": {},
+        "eager": false,
+        "is_target": false,
+        "is_input": true,
+        "resource": null
+      },
+      "finetuning_validator": {
+        "needs": {
+          "importer": "schema_validator"
+        },
+        "uses": "rasa.graph_components.validators.finetuning_validator.FinetuningValidator",
+        "constructor_name": "create",
+        "fn": "validate",
+        "config": {
+          "validate_core": true,
+          "validate_nlu": true
+        },
+        "eager": false,
+        "is_target": false,
+        "is_input": true,
+        "resource": null
+      },
+      "nlu_training_data_provider": {
+        "needs": {
+          "importer": "finetuning_validator"
+        },
+        "uses": "rasa.graph_components.providers.nlu_training_data_provider.NLUTrainingDataProvider",
+        "constructor_name": "create",
+        "fn": "provide",
+        "config": {
+          "language": "en",
+          "persist": false
+        },
+        "eager": false,
+        "is_target": false,
+        "is_input": true,
+        "resource": null
+      },
+      "run_WhitespaceTokenizer0": {
+        "needs": {
+          "training_data": "nlu_training_data_provider"
+        },
+        "uses": "rasa.nlu.tokenizers.whitespace_tokenizer.WhitespaceTokenizer",
+        "constructor_name": "load",
+        "fn": "process_training_data",
+        "config": {},
+        "eager": false,
+        "is_target": false,
+        "is_input": false,
+        "resource": null
+      },
+      "train_RegexFeaturizer1": {
+        "needs": {
+          "training_data": "run_WhitespaceTokenizer0"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.regex_featurizer.RegexFeaturizer",
+        "constructor_name": "create",
+        "fn": "train",
+        "config": {},
+        "eager": false,
+        "is_target": true,
+        "is_input": false,
+        "resource": null
+      },
+      "run_RegexFeaturizer1": {
+        "needs": {
+          "training_data": "run_WhitespaceTokenizer0",
+          "resource": "train_RegexFeaturizer1"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.regex_featurizer.RegexFeaturizer",
+        "constructor_name": "load",
+        "fn": "process_training_data",
+        "config": {},
+        "eager": false,
+        "is_target": false,
+        "is_input": false,
+        "resource": null
+      },
+      "train_LexicalSyntacticFeaturizer2": {
+        "needs": {
+          "training_data": "run_RegexFeaturizer1"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.lexical_syntactic_featurizer.LexicalSyntacticFeaturizer",
+        "constructor_name": "create",
+        "fn": "train",
+        "config": {},
+        "eager": false,
+        "is_target": true,
+        "is_input": false,
+        "resource": null
+      },
+      "run_LexicalSyntacticFeaturizer2": {
+        "needs": {
+          "training_data": "run_RegexFeaturizer1",
+          "resource": "train_LexicalSyntacticFeaturizer2"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.lexical_syntactic_featurizer.LexicalSyntacticFeaturizer",
+        "constructor_name": "load",
+        "fn": "process_training_data",
+        "config": {},
+        "eager": false,
+        "is_target": false,
+        "is_input": false,
+        "resource": null
+      },
+      "train_CountVectorsFeaturizer3": {
+        "needs": {
+          "training_data": "run_LexicalSyntacticFeaturizer2"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer.CountVectorsFeaturizer",
+        "constructor_name": "create",
+        "fn": "train",
+        "config": {},
+        "eager": false,
+        "is_target": true,
+        "is_input": false,
+        "resource": null
+      },
+      "run_CountVectorsFeaturizer3": {
+        "needs": {
+          "training_data": "run_LexicalSyntacticFeaturizer2",
+          "resource": "train_CountVectorsFeaturizer3"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer.CountVectorsFeaturizer",
+        "constructor_name": "load",
+        "fn": "process_training_data",
+        "config": {},
+        "eager": false,
+        "is_target": false,
+        "is_input": false,
+        "resource": null
+      },
+      "train_CountVectorsFeaturizer4": {
+        "needs": {
+          "training_data": "run_CountVectorsFeaturizer3"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer.CountVectorsFeaturizer",
+        "constructor_name": "create",
+        "fn": "train",
+        "config": {
+          "analyzer": "char_wb",
+          "min_ngram": 1,
+          "max_ngram": 4
+        },
+        "eager": false,
+        "is_target": true,
+        "is_input": false,
+        "resource": null
+      },
+      "run_CountVectorsFeaturizer4": {
+        "needs": {
+          "training_data": "run_CountVectorsFeaturizer3",
+          "resource": "train_CountVectorsFeaturizer4"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer.CountVectorsFeaturizer",
+        "constructor_name": "load",
+        "fn": "process_training_data",
+        "config": {
+          "analyzer": "char_wb",
+          "min_ngram": 1,
+          "max_ngram": 4
+        },
+        "eager": false,
+        "is_target": false,
+        "is_input": false,
+        "resource": null
+      },
+      "train_DIETClassifier5": {
+        "needs": {
+          "training_data": "run_CountVectorsFeaturizer4"
+        },
+        "uses": "rasa.nlu.classifiers.diet_classifier.DIETClassifier",
+        "constructor_name": "create",
+        "fn": "train",
+        "config": {
+          "epochs": 100,
+          "constrain_similarities": true
+        },
+        "eager": false,
+        "is_target": true,
+        "is_input": false,
+        "resource": null
+      },
+      "train_EntitySynonymMapper6": {
+        "needs": {
+          "training_data": "run_CountVectorsFeaturizer4"
+        },
+        "uses": "rasa.nlu.extractors.entity_synonyms.EntitySynonymMapper",
+        "constructor_name": "create",
+        "fn": "train",
+        "config": {},
+        "eager": false,
+        "is_target": true,
+        "is_input": false,
+        "resource": null
+      },
+      "train_ResponseSelector7": {
+        "needs": {
+          "training_data": "run_CountVectorsFeaturizer4"
+        },
+        "uses": "rasa.nlu.selectors.response_selector.ResponseSelector",
+        "constructor_name": "create",
+        "fn": "train",
+        "config": {
+          "epochs": 100,
+          "constrain_similarities": true
+        },
+        "eager": false,
+        "is_target": true,
+        "is_input": false,
+        "resource": null
+      },
+      "domain_provider": {
+        "needs": {
+          "importer": "finetuning_validator"
+        },
+        "uses": "rasa.graph_components.providers.domain_provider.DomainProvider",
+        "constructor_name": "create",
+        "fn": "provide_train",
+        "config": {},
+        "eager": false,
+        "is_target": true,
+        "is_input": true,
+        "resource": null
+      },
+      "domain_for_core_training_provider": {
+        "needs": {
+          "domain": "domain_provider"
+        },
+        "uses": "rasa.graph_components.providers.domain_for_core_training_provider.DomainForCoreTrainingProvider",
+        "constructor_name": "create",
+        "fn": "provide",
+        "config": {},
+        "eager": false,
+        "is_target": false,
+        "is_input": true,
+        "resource": null
+      },
+      "forms_provider": {
+        "needs": {
+          "domain": "domain_provider"
+        },
+        "uses": "rasa.graph_components.providers.forms_provider.FormsProvider",
+        "constructor_name": "create",
+        "fn": "provide",
+        "config": {},
+        "eager": false,
+        "is_target": false,
+        "is_input": true,
+        "resource": null
+      },
+      "responses_provider": {
+        "needs": {
+          "domain": "domain_provider"
+        },
+        "uses": "rasa.graph_components.providers.responses_provider.ResponsesProvider",
+        "constructor_name": "create",
+        "fn": "provide",
+        "config": {},
+        "eager": false,
+        "is_target": false,
+        "is_input": true,
+        "resource": null
+      },
+      "story_graph_provider": {
+        "needs": {
+          "importer": "finetuning_validator"
+        },
+        "uses": "rasa.graph_components.providers.story_graph_provider.StoryGraphProvider",
+        "constructor_name": "create",
+        "fn": "provide",
+        "config": {
+          "exclusion_percentage": null
+        },
+        "eager": false,
+        "is_target": false,
+        "is_input": true,
+        "resource": null
+      },
+      "training_tracker_provider": {
+        "needs": {
+          "story_graph": "story_graph_provider",
+          "domain": "domain_for_core_training_provider"
+        },
+        "uses": "rasa.graph_components.providers.training_tracker_provider.TrainingTrackerProvider",
+        "constructor_name": "create",
+        "fn": "provide",
+        "config": {
+          "debug_plots": false,
+          "augmentation_factor": 50
+        },
+        "eager": false,
+        "is_target": false,
+        "is_input": false,
+        "resource": null
+      },
+      "train_MemoizationPolicy0": {
+        "needs": {
+          "domain": "domain_for_core_training_provider",
+          "training_trackers": "training_tracker_provider"
+        },
+        "uses": "rasa.core.policies.memoization.MemoizationPolicy",
+        "constructor_name": "create",
+        "fn": "train",
+        "config": {},
+        "eager": false,
+        "is_target": true,
+        "is_input": false,
+        "resource": null
+      },
+      "train_RulePolicy1": {
+        "needs": {
+          "domain": "domain_for_core_training_provider",
+          "training_trackers": "training_tracker_provider"
+        },
+        "uses": "rasa.core.policies.rule_policy.RulePolicy",
+        "constructor_name": "create",
+        "fn": "train",
+        "config": {},
+        "eager": false,
+        "is_target": true,
+        "is_input": false,
+        "resource": null
+      },
+      "train_TEDPolicy2": {
+        "needs": {
+          "domain": "domain_for_core_training_provider",
+          "training_trackers": "training_tracker_provider"
+        },
+        "uses": "rasa.core.policies.ted_policy.TEDPolicy",
+        "constructor_name": "create",
+        "fn": "train",
+        "config": {
+          "max_history": 5,
+          "epochs": 100,
+          "constrain_similarities": true
+        },
+        "eager": false,
+        "is_target": true,
+        "is_input": false,
+        "resource": null
+      }
+    }
+  },
+  "predict_schema": {
+    "nodes": {
+      "nlu_message_converter": {
+        "needs": {
+          "messages": "__message__"
+        },
+        "uses": "rasa.graph_components.converters.nlu_message_converter.NLUMessageConverter",
+        "constructor_name": "load",
+        "fn": "convert_user_message",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": null
+      },
+      "run_WhitespaceTokenizer0": {
+        "needs": {
+          "messages": "nlu_message_converter"
+        },
+        "uses": "rasa.nlu.tokenizers.whitespace_tokenizer.WhitespaceTokenizer",
+        "constructor_name": "load",
+        "fn": "process",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": null
+      },
+      "run_RegexFeaturizer1": {
+        "needs": {
+          "messages": "run_WhitespaceTokenizer0"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.regex_featurizer.RegexFeaturizer",
+        "constructor_name": "load",
+        "fn": "process",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "train_RegexFeaturizer1",
+          "output_fingerprint": "21ff321a23144fb581b465be6c2850b2"
+        }
+      },
+      "run_LexicalSyntacticFeaturizer2": {
+        "needs": {
+          "messages": "run_RegexFeaturizer1"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.lexical_syntactic_featurizer.LexicalSyntacticFeaturizer",
+        "constructor_name": "load",
+        "fn": "process",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "train_LexicalSyntacticFeaturizer2",
+          "output_fingerprint": "ade3b70dd7b6447997f84275e73dad58"
+        }
+      },
+      "run_CountVectorsFeaturizer3": {
+        "needs": {
+          "messages": "run_LexicalSyntacticFeaturizer2"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer.CountVectorsFeaturizer",
+        "constructor_name": "load",
+        "fn": "process",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "train_CountVectorsFeaturizer3",
+          "output_fingerprint": "03890f81201941cfb28b2ce9b1d11b79"
+        }
+      },
+      "run_CountVectorsFeaturizer4": {
+        "needs": {
+          "messages": "run_CountVectorsFeaturizer3"
+        },
+        "uses": "rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer.CountVectorsFeaturizer",
+        "constructor_name": "load",
+        "fn": "process",
+        "config": {
+          "analyzer": "char_wb",
+          "min_ngram": 1,
+          "max_ngram": 4
+        },
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "train_CountVectorsFeaturizer4",
+          "output_fingerprint": "8243348185d6416e8edb9c2315fb0cf0"
+        }
+      },
+      "run_DIETClassifier5": {
+        "needs": {
+          "messages": "run_CountVectorsFeaturizer4"
+        },
+        "uses": "rasa.nlu.classifiers.diet_classifier.DIETClassifier",
+        "constructor_name": "load",
+        "fn": "process",
+        "config": {
+          "epochs": 100,
+          "constrain_similarities": true
+        },
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "train_DIETClassifier5",
+          "output_fingerprint": "036e8b74100e45d0adceadeb73e23c3d"
+        }
+      },
+      "run_EntitySynonymMapper6": {
+        "needs": {
+          "messages": "run_DIETClassifier5"
+        },
+        "uses": "rasa.nlu.extractors.entity_synonyms.EntitySynonymMapper",
+        "constructor_name": "load",
+        "fn": "process",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "train_EntitySynonymMapper6",
+          "output_fingerprint": "399bd3083749499fb1bd0e3f6e144d4a"
+        }
+      },
+      "run_ResponseSelector7": {
+        "needs": {
+          "messages": "run_EntitySynonymMapper6"
+        },
+        "uses": "rasa.nlu.selectors.response_selector.ResponseSelector",
+        "constructor_name": "load",
+        "fn": "process",
+        "config": {
+          "epochs": 100,
+          "constrain_similarities": true
+        },
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "train_ResponseSelector7",
+          "output_fingerprint": "0336398b915d4f68b8f85323e63f844c"
+        }
+      },
+      "run_FallbackClassifier8": {
+        "needs": {
+          "messages": "run_ResponseSelector7"
+        },
+        "uses": "rasa.nlu.classifiers.fallback_classifier.FallbackClassifier",
+        "constructor_name": "load",
+        "fn": "process",
+        "config": {
+          "threshold": 0.3,
+          "ambiguity_threshold": 0.1
+        },
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": null
+      },
+      "run_RegexMessageHandler": {
+        "needs": {
+          "messages": "run_FallbackClassifier8",
+          "domain": "domain_provider"
+        },
+        "uses": "rasa.nlu.classifiers.regex_message_handler.RegexMessageHandler",
+        "constructor_name": "load",
+        "fn": "process",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": null
+      },
+      "domain_provider": {
+        "needs": {},
+        "uses": "rasa.graph_components.providers.domain_provider.DomainProvider",
+        "constructor_name": "load",
+        "fn": "provide_inference",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "domain_provider",
+          "output_fingerprint": "e4ab8ce8395641f9b98f402d0f7f1dbd"
+        }
+      },
+      "run_MemoizationPolicy0": {
+        "needs": {
+          "tracker": "__tracker__",
+          "domain": "domain_provider",
+          "rule_only_data": "rule_only_data_provider"
+        },
+        "uses": "rasa.core.policies.memoization.MemoizationPolicy",
+        "constructor_name": "load",
+        "fn": "predict_action_probabilities",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "train_MemoizationPolicy0",
+          "output_fingerprint": "a71a978d360542a2911999e00afb4342"
+        }
+      },
+      "run_RulePolicy1": {
+        "needs": {
+          "tracker": "__tracker__",
+          "domain": "domain_provider",
+          "rule_only_data": "rule_only_data_provider"
+        },
+        "uses": "rasa.core.policies.rule_policy.RulePolicy",
+        "constructor_name": "load",
+        "fn": "predict_action_probabilities",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "train_RulePolicy1",
+          "output_fingerprint": "ef3e5cf835334df9aaec82d09fd28b0b"
+        }
+      },
+      "run_TEDPolicy2": {
+        "needs": {
+          "tracker": "__tracker__",
+          "domain": "domain_provider",
+          "rule_only_data": "rule_only_data_provider"
+        },
+        "uses": "rasa.core.policies.ted_policy.TEDPolicy",
+        "constructor_name": "load",
+        "fn": "predict_action_probabilities",
+        "config": {
+          "max_history": 5,
+          "epochs": 100,
+          "constrain_similarities": true
+        },
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "train_TEDPolicy2",
+          "output_fingerprint": "c867caae642c4cd3b3cabe299e8fb4a6"
+        }
+      },
+      "rule_only_data_provider": {
+        "needs": {},
+        "uses": "rasa.graph_components.providers.rule_only_provider.RuleOnlyDataProvider",
+        "constructor_name": "load",
+        "fn": "provide",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": {
+          "name": "train_RulePolicy1",
+          "output_fingerprint": "791737b633844e53888433f5b1831e13"
+        }
+      },
+      "select_prediction": {
+        "needs": {
+          "policy0": "run_MemoizationPolicy0",
+          "policy1": "run_RulePolicy1",
+          "policy2": "run_TEDPolicy2",
+          "domain": "domain_provider",
+          "tracker": "__tracker__"
+        },
+        "uses": "rasa.core.policies.ensemble.DefaultPolicyPredictionEnsemble",
+        "constructor_name": "load",
+        "fn": "combine_predictions_from_kwargs",
+        "config": {},
+        "eager": true,
+        "is_target": false,
+        "is_input": false,
+        "resource": null
+      }
+    }
+  },
+  "training_type": 3,
+  "project_fingerprint": "8496fe283c74e15e4c3660ff601e25adedb7d2ee2208206ac02f2260f563dc13",
+  "core_target": "select_prediction",
+  "nlu_target": "run_RegexMessageHandler",
+  "language": "en",
+  "spaces": null
+}

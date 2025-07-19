@@ -1,0 +1,48 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"services\"}}]": "utter_services",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"services\"}}, {\"prev_action\": {\"action_name\": \"utter_services\"}, \"user\": {\"intent\": \"services\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"flight_delay_compensation\"}}]": "action_flight_delay_compensation",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"flight_delay_compensation\"}}, {\"prev_action\": {\"action_name\": \"action_flight_delay_compensation\"}, \"user\": {\"intent\": \"flight_delay_compensation\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ticket_refund\"}}]": "utter_ticket_refund",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ticket_refund\"}}, {\"prev_action\": {\"action_name\": \"utter_ticket_refund\"}, \"user\": {\"intent\": \"ticket_refund\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"checkin_requirements\"}}]": "utter_checkin_requirements",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"checkin_requirements\"}}, {\"prev_action\": {\"action_name\": \"utter_checkin_requirements\"}, \"user\": {\"intent\": \"checkin_requirements\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"flight_departure_time\"}}]": "utter_flight_departure_time",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"flight_departure_time\"}}, {\"prev_action\": {\"action_name\": \"utter_flight_departure_time\"}, \"user\": {\"intent\": \"flight_departure_time\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"checkin_time\"}}]": "utter_checkin_time",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"checkin_time\"}}, {\"prev_action\": {\"action_name\": \"utter_checkin_time\"}, \"user\": {\"intent\": \"checkin_time\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "utter_bot_challenge",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_bot_challenge\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ticket_change\"}}]": "utter_ticket_change",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ticket_change\"}}, {\"prev_action\": {\"action_name\": \"utter_ticket_change\"}, \"user\": {\"intent\": \"ticket_change\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"flight_status\"}}]": "utter_ask_flight_code",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"flight_status\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_ask_flight_code\"}, \"user\": {\"intent\": \"flight_status\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"baggage_lost\"}}]": "utter_baggage_lost",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"baggage_lost\"}}, {\"prev_action\": {\"action_name\": \"utter_baggage_lost\"}, \"user\": {\"intent\": \"baggage_lost\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"flight_route_info\"}}]": "utter_flight_route_info",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"flight_route_info\"}}, {\"prev_action\": {\"action_name\": \"utter_flight_route_info\"}, \"user\": {\"intent\": \"flight_route_info\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"gate_info\"}}]": "utter_gate_info",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"gate_info\"}}, {\"prev_action\": {\"action_name\": \"utter_gate_info\"}, \"user\": {\"intent\": \"gate_info\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}]": "utter_greet",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_greet\"}, \"user\": {\"intent\": \"greet\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"flight_code\": [1.0]}, \"user\": {\"entities\": [\"flight_code\"], \"intent\": \"flight_status\"}}]": "action_flight_status",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"flight_code\": [1.0]}, \"user\": {\"entities\": [\"flight_code\"], \"intent\": \"flight_status\"}}, {\"prev_action\": {\"action_name\": \"action_flight_status\"}, \"slots\": {\"flight_code\": [1.0]}, \"user\": {\"entities\": [\"flight_code\"], \"intent\": \"flight_status\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"checkin_requirements\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"flight_departure_time\"}}]",
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"flight_departure_time\"}}, {\"prev_action\": {\"action_name\": \"utter_flight_departure_time\"}, \"user\": {\"intent\": \"flight_departure_time\"}}]",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"checkin_requirements\"}}, {\"prev_action\": {\"action_name\": \"utter_checkin_requirements\"}, \"user\": {\"intent\": \"checkin_requirements\"}}]"
+    ]
+  }
+}

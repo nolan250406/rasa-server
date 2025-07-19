@@ -1,0 +1,17 @@
+{
+  "0": "ask_help",
+  "1": "baggage_lost",
+  "2": "bot_challenge",
+  "3": "checkin_requirements",
+  "4": "checkin_time",
+  "5": "flight_delay_compensation",
+  "6": "flight_departure_time",
+  "7": "flight_route_info",
+  "8": "flight_status",
+  "9": "gate_info",
+  "10": "goodbye",
+  "11": "greet",
+  "12": "services",
+  "13": "ticket_change",
+  "14": "ticket_refund"
+}
